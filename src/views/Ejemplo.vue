@@ -2,17 +2,18 @@
   <div class="about">
     <h1>Estás en Ejemplo</h1>
     <Personaje fuerza="5" />
+    <Personaje fuerza="10" />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import Personaje from '@/components/Personaje.vue'
+import Personaje from "@/components/Personaje.vue";
 
 export default {
-  name: 'Ejemplo',
+  name: "Ejemplo",
   components: {
-    Personaje
-  }
-}
+    Personaje,
+  },
+};
 </script>
