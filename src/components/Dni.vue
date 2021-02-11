@@ -34,7 +34,6 @@ export default {
         return;
       }
       if (texto.length==9 && expresion.test(texto)) {
-
         clases.value = "ok";
       }else{
         clases.value = "bad";
