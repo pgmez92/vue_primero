@@ -1,13 +1,13 @@
 <template>
-  <Dni />
+  <Input campo="DNI" expresion="([a-z]|[A-Z]|[0-9])[0-9]{7}([a-z]|[A-Z]|[0-9])" />
 </template>
 
 <script>
-import Dni from "@/components/Dni";
+import Input from "@/components/Input";
 export default {
   name: "Ejercicio2",
   components: {
-    Dni,
+    Input,
   },
 };
 </script>

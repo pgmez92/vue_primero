@@ -3,6 +3,8 @@ import Home from '../views/Home.vue'
 import Ejemplo from '../views/Ejemplo.vue'
 import Ejercicio1 from '../views/Ejercicio1.vue'
 import Ejercicio2 from '../views/Ejercicio2.vue'
+import Ejercicio3 from '../views/Ejercicio3.vue'
+import Ejercicio4 from '../views/Ejercicio4.vue'
 
 const routes = [
   {
@@ -21,7 +23,17 @@ const routes = [
     component: Ejercicio2
   },
   {
-    path: '/about',
+    path: '/ejercicio3',
+    name: 'Ejercicio3',
+    component: Ejercicio3
+  },
+  {
+    path: '/ejercicio4',
+    name: 'Ejercicio4',
+    component: Ejercicio4
+  },
+  {
+    path: '/pruebas',
     name: 'About',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route

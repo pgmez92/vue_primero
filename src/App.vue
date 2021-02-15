@@ -1,10 +1,12 @@
 <template>
   <div id="nav">
     <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link> |
+    <router-link to="/pruebas">Pruebas</router-link> |
     <router-link to="/ejemplo">Ejemplo</router-link> |
-    <router-link to="/ejercicio1">ejercicio1</router-link> |
-    <router-link to="/ejercicio2">ejercicio2</router-link> |
+    <router-link to="/ejercicio1">Reactividad</router-link> |
+    <router-link to="/ejercicio2">Validacion DNI</router-link> |
+    <router-link to="/ejercicio3">Login</router-link> |
+    <router-link to="/ejercicio4">Tabla</router-link> |
     <router-view />
   </div>
 </template>
