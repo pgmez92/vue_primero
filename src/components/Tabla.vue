@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import { ref, reactive, onMounted, computed } from "vue";
+import { reactive, computed } from "vue";
 import Input from "@/components/Input";
 
 export default {
@@ -58,11 +58,11 @@ export default {
     ]);
     const subTotal = (cant, precio) => cant * precio;
     const total = computed(() => {
-      let total = 0;
+      let valor_total = 0;
       datos.forEach((producto) => {
-        total += producto.cantidad * producto.precio;
+        valor_total += producto.cantidad * producto.precio;
       });
-      return total.toFixed(2);
+      return valor_total.toFixed(2);
     });
     const agregar = () => {
       let nuevo = {
