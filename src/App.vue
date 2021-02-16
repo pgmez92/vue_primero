@@ -7,6 +7,7 @@
     <router-link to="/ejercicio2">Validacion DNI</router-link> |
     <router-link to="/ejercicio3">Login</router-link> |
     <router-link to="/ejercicio4">Tabla</router-link> |
+    <router-link to="/ejercicio5">Provincias</router-link> |
     <router-view />
   </div>
 </template>

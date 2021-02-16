@@ -10,7 +10,7 @@
     </div>
   </div>
 
-  <table class="tabla">
+  <table class="tabla" id="cantProd">
     <thead>
       <tr>
         <th>indice</th>
@@ -24,21 +24,22 @@
       <tr v-for="(producto, i) in datos" :key="i">
         <td>{{ i + 1 }}</td>
         <td>{{ producto.concepto }}</td>
-        <td>{{ producto.precio }}</td>
-        <td>{{ producto.cantidad }}</td>
-        <td>{{ subTotal(producto.precio, producto.cantidad) }}</td>
+        <td>{{ producto.precio }} €</td>
+        <td><input type="number" v-model="producto.cantidad" /></td>
+        <td>{{ subTotal(producto.precio, producto.cantidad) }} €</td>
+        <td><button @click="eliminarProd">Eliminar</button></td>
       </tr>
     </tbody>
   </table>
   <div class="total">
     <div colspan="3">
-      TOTAL: <span>{{ total }}</span>
+      TOTAL: <span>{{ total }} €</span>
     </div>
   </div>
 </template>
 
 <script>
-import { ref, reactive, onMounted } from "vue";
+import { ref, reactive, onMounted, computed } from "vue";
 import Input from "@/components/Input";
 
 export default {
@@ -55,31 +56,34 @@ export default {
       { concepto: "sudadera", cantidad: 2, precio: 10 },
       { concepto: "camiseta", cantidad: 5, precio: 12 },
     ]);
-    let total = ref(0);
     const subTotal = (cant, precio) => cant * precio;
-    const calcTotal = () => {
-      datos.forEach(
-        (producto) => (total.value += producto.cantidad * producto.precio)
-      );
-    };
+    const total = computed(() => {
+      let total = 0;
+      datos.forEach((producto) => {
+        total += producto.cantidad * producto.precio;
+      });
+      return total.toFixed(2);
+    });
     const agregar = () => {
       let nuevo = {
         concepto: concep.lastChild.lastChild.value,
         cantidad: cant.lastChild.lastChild.value,
         precio: prec.lastChild.lastChild.value,
       };
-
       datos.push(nuevo);
-      total.value = 0;
-      calcTotal();
     };
 
-    onMounted(() => calcTotal());
+    const eliminarProd = (e) => {
+      let index = e.path[2].firstChild.textContent - 1;
+      datos.splice(index, 1);
+    };
+
     return {
       datos,
       subTotal,
       total,
       agregar,
+      eliminarProd,
     };
   },
 };
